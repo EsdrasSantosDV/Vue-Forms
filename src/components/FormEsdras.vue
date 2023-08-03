@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{event }}
     <h1>Create a Contract</h1>
     <form>
 
@@ -15,30 +16,26 @@
 
       <h3>Name & describe your event</h3>
 
-      <label>Title</label>
-      <input
+      <InputGeneric
           v-model="event.title"
+          label="Title"
           type="text"
-          placeholder="Title"
-          class="field"
-      >
+      />
 
-      <label>Description</label>
-      <input
+      <InputGeneric
           v-model="event.description"
+          label="Description"
           type="text"
-          placeholder="Description"
-          class="field"
       />
 
       <h3>Where is your event?</h3>
 
-      <label>Location</label>
-      <input
+
+
+      <InputGeneric
           v-model="event.location"
+          label="Location"
           type="text"
-          placeholder="Location"
-          class="field"
       />
 
       <h3>Are pets allowed?</h3>
@@ -83,11 +80,16 @@
 
       <button type="submit">Submit</button>
     </form>
+
+
   </div>
 </template>
 
 <script>
+import InputGeneric from "@/components/InputGeneric.vue";
+
 export default {
+  components: {InputGeneric},
   data () {
     return {
       categories: [
