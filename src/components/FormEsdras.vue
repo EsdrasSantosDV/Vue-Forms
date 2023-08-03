@@ -4,15 +4,11 @@
     <h1>Create a Contract</h1>
     <form>
 
-      <label>Select a category</label>
-      <select v-model="event.category">
-        <option
-            v-for="option in categories"
-            :value="option"
-            :key="option"
-            :selected="option === event.category"
-        >{{ option }}</option>
-      </select>
+      <SelectGeneric
+          :options="categories"
+          v-model="event.category"
+          label="Select a category"
+      />
 
       <h3>Name & describe your event</h3>
 
@@ -87,9 +83,10 @@
 
 <script>
 import InputGeneric from "@/components/InputGeneric.vue";
+import SelectGeneric from "@/components/SelectGeneric.vue";
 
 export default {
-  components: {InputGeneric},
+  components: {SelectGeneric, InputGeneric},
   data () {
     return {
       categories: [
